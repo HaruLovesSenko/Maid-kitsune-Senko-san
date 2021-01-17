@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const db = require("ezpz.db");
-const fs = require('fs')
+const fs = require('fs');
 
 const prefix = "s?"
 
