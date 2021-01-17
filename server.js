@@ -10,7 +10,7 @@ db.connect(`mongodb+srv://Haru:${process.env.mongoP}@cluster0-whi8f.mongodb.net/
   useUnifiedTopology: true
 });
 
-client.commands = new Discord.Collection()
+client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
