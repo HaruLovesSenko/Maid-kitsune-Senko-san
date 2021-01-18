@@ -23,6 +23,6 @@ module.exports = class pat extends command {
       `${a} lightly strokes ${u}'s head`
     ]
     let msg2 = arr[Math.floor(Math.random()*arr.length)]
-    new tenor("anime-headpat").sendGif(msg, msg2 + " ( ´･･)ﾉ(._.`)", user)
+    new tenor("anime-headpat").sendGif(msg, msg2 + " ( ´･･)ﾉ(._.`)", user, "pat")
   }
 }

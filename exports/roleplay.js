@@ -5,18 +5,18 @@ class TenorSearch {
     this.query = query
   }
   
-  sendGif(msg, msg2, user) {
+  sendGif(msg, msg2, user, i) {
     if (!user)
       return msg.channel.send({
         embed: {
-          description: "You cant pat nobody... :(",
+          description: "You cant " + i + " nobody... :(",
           color: "RED"
         }
       });
     if (user.id == msg.author.id)
       return msg.channel.send({
         embed: {
-          description: "You cant pat yourself... :(",
+          description: "You cant " + i + " yourself... :(",
           color: "RED"
         }
       });
@@ -24,7 +24,6 @@ class TenorSearch {
     .then(res => res.json())
     .then(json => {
       let a = json.results[Math.floor(Math.random()*json.results.length)]
-      console.log(a.media)
       msg.channel.send({embed: {
         description: msg2,
         color: "ORANGE",
