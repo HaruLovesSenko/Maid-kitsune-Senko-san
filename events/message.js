@@ -2,12 +2,21 @@ const prefix = "s?";
 const using = new Set();
 
 module.exports = (client, msg) => {
+  if (!msg.guild || msg.author.bot) return;
   if (msg.content.toLowerCase().startsWith(prefix)) {
     try {
       let name = msg.content.slice(prefix.length).split(" ")[0];
       let command = client.commands.find(
         x => x.constructor.name.toLowerCase() == name.toLowerCase()
       );
+      if (using.has(msg.author.id))
+      return msg.channel.send({
+        embed: {
+          description:
+            "Please finish your last command before using a new one.",
+          color: "RED"
+        }
+      });
       return command.run(msg, client, using);
     } catch (err) {
       console.log(err);

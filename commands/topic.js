@@ -3,18 +3,10 @@ const command = require('/app/exports/commandClass.js')
 
 module.exports = class topic extends command {
   constructor() {
-    super("Generates a random topic to talk about!", "s?topic")
+    super("Generates a random topic to talk about!", "s?topic", "normal")
   }
   
   run(msg, client, using) {
-    if (using.has(msg.author.id))
-      return msg.channel.send({
-        embed: {
-          description:
-            "Please finish your last command before using a new one.",
-          color: "RED"
-        }
-      });
     const fetch = require("node-fetch");
     fetch("https://conversationstartersworld.com/random-question-generator/")
       .then(res => res.text())

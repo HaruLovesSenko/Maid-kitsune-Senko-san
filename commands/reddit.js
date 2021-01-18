@@ -3,17 +3,10 @@ const command = require('/app/exports/commandClass.js')
 
 module.exports = class reddit extends command {
   constructor() {
-    super("Search for a post in from subreddits!", "s?reddit")
+    super("Search for a post in from subreddits!", "s?reddit", "fun")
   }
   
   async run(msg, client, using) {
-    if (using.has(msg.author.id))
-      return msg.channel.send({
-        embed: {
-          description: "Please finish your last command before using a new one.",
-          color: "RED"
-        }
-      });
     using.add(msg.author.id);
     const { meme } = require("memejs");
     let subs = [
@@ -40,7 +33,6 @@ module.exports = class reddit extends command {
     );
     let sub = false;
     collector.on("collect", message => {
-      message.delete();
       if (message.content.toLowerCase() == "cancel") {
         sub = "cancel";
         msg.channel.send({
