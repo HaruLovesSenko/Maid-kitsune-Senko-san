@@ -60,6 +60,7 @@ module.exports = (client, msg) => {
       let user =
         msg.mentions.members.first() ||
         msg.guild.members.cache.get(msg.content.split(" ")[1]);
+      if (!user) return;
       let name = user.nickname || user.user.username;
       msg.channel
         .createWebhook(name, {
