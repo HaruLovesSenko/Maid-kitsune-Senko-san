@@ -1,4 +1,4 @@
-const Discord = require("discord.js")
+const Discord = require("discord.js");
 const command = require('/app/exports/commandClass.js')
 
 module.exports = class reddit extends command {
@@ -96,14 +96,14 @@ module.exports = class reddit extends command {
     });
 
     let sendMeme = (err, data, m, m2) => {
-      if (err) return console.log(err);
+      m.delete();
+      m2.delete()
+      if (err) return console.log(err)
       let embed2 = new Discord.MessageEmbed()
         .setTitle(data.title)
         .setColor("ORANGE")
         .setImage(data.url)
         .setFooter(`Meme by: u/${data.author} | Meme from: r/${data.subreddit}`);
-      m.delete();
-      m2.delete();
       return msg.channel.send({ embed: embed2 });
     };
   }
