@@ -96,8 +96,8 @@ module.exports = class reddit extends command {
     });
 
     let sendMeme = (err, data, m, m2) => {
-      m.delete();
-      m2.delete()
+      m.delete().catch(console.log())
+      m2.delete().catch(console.log())
       if (err) return console.log(err)
       let embed2 = new Discord.MessageEmbed()
         .setTitle(data.title)
