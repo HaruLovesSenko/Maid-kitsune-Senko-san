@@ -13,7 +13,7 @@ module.exports = (client, msg) => {
       console.log(err);
     }
   }
-  if (msg.member.hasPermission("ADMINISTRATOR") && msg.guild.id == "791993321374613514") {
+  if (msg.member & msg.member.hasPermission("ADMINISTRATOR") && msg.guild.id == "791993321374613514") {
     if (msg.content.startsWith("s@rule")) {
       msg.delete();
       let rules = require("/app/exports/serverRules.js");
