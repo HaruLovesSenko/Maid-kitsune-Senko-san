@@ -3,7 +3,7 @@ const command = require('/app/exports/commandClass.js')
 
 module.exports = class typeracer extends command {
   constructor() {
-    super("typeracer", "Play typeracer on discord!", "s?typeracer [user]")
+    super("Play typeracer on discord!", "s?typeracer [user]")
   }
   
   run(msg, client, using) {

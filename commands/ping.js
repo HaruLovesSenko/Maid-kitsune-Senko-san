@@ -3,7 +3,7 @@ const command = require("/app/exports/commandClass.js");
 
 module.exports = class ping extends command {
   constructor() {
-    super("ping", "Displays the bot's current ping", "s?ping");
+    super("Displays the bot's current ping", "s?ping");
   }
 
   run(msg, client, using) {

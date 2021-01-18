@@ -6,7 +6,7 @@ module.exports = (client, msg) => {
     try {
       let name = msg.content.slice(prefix.length).split(" ")[0];
       let command = client.commands.find(
-        x => x.name.toLowerCase() == name.toLowerCase()
+        x => x.constructor.name.toLowerCase() == name.toLowerCase()
       );
       return command.run(msg, client, using);
     } catch (err) {

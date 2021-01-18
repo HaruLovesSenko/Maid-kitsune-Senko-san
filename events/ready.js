@@ -9,5 +9,5 @@ module.exports = (client) => {
       num--;
     }
   }, 10000);
-  console.log("Im ready to help!");
+  console.log("┌──────────────────┐\n| Im ready to help |\n└──────────────────┘");
 }
