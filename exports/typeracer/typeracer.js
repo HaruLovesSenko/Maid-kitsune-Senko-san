@@ -3,14 +3,6 @@ const r = require("random-word");
 
 module.exports = {
   run: (msg, using) => {
-    if (using.has(msg.author.id))
-      return msg.channel.send({
-        embed: {
-          description:
-            "Please finish your last command before using a new one.",
-          color: "RED"
-        }
-      });
     let p1 = msg.author;
     let p2 = msg.mentions.users.first();
     if (using.has(p2))
