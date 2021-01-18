@@ -3,7 +3,7 @@ const command = require('/app/exports/commandClass.js')
 
 module.exports = class help extends command {
   constructor() {
-    super("help", "Displays this command list and/or get extra info on a command!", "s?help or s?help [command]")
+    super("Displays the commands list and/or get extra info on a command!", "s?help or s?help [command]")
   }
   
   run(msg, client, using) {
@@ -19,7 +19,7 @@ module.exports = class help extends command {
     if (!args[1]) {
       let text = `Do "s?help [command]" to get more info on a command!\n\n`
       client.commands.forEach(command => {
-        text += `\`${command.name}\` `
+        text += `\`${command.constructor.name}\` `
       })
       let embed = new MessageEmbed()
       .setTitle("COMMANDS")
@@ -28,7 +28,7 @@ module.exports = class help extends command {
       msg.channel.send({ embed: embed })
     } else {
       let command = client.commands.find(
-        x => x.name.toLowerCase() == args[1].toLowerCase()
+        x => x.constructor.name.toLowerCase() == args[1].toLowerCase()
       );
       if (!command) return msg.channel.send({
         embed: {
@@ -38,7 +38,7 @@ module.exports = class help extends command {
         }
       });
       let embed = new MessageEmbed()
-      .setTitle(command.name.toUpperCase())
+      .setTitle(command.constructor.name.toUpperCase())
       .addField("Description:", command.description)
       .addField("Usage:", command.usage)
       .setColor("ORANGE")

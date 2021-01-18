@@ -3,7 +3,7 @@ const command = require('/app/exports/commandClass.js')
 
 module.exports = class topic extends command {
   constructor() {
-    super("topic", "Generates a random topic to talk about!", "s?topic")
+    super("Generates a random topic to talk about!", "s?topic")
   }
   
   run(msg, client, using) {

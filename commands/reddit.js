@@ -3,7 +3,7 @@ const command = require('/app/exports/commandClass.js')
 
 module.exports = class reddit extends command {
   constructor() {
-    super("reddit", "Search for a post in from subreddits!", "s?reddit")
+    super("Search for a post in from subreddits!", "s?reddit")
   }
   
   async run(msg, client, using) {

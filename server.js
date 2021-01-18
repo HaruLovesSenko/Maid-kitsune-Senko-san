@@ -1,30 +1,45 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const db = require("ezpz.db");
-const fs = require('fs');
+const fs = require('fs')
 
-const prefix = "s?"
+const client = new Discord.Client();
+const prefix = "s?";
 
 db.connect(`mongodb+srv://Haru:${process.env.mongoP}@cluster0-whi8f.mongodb.net/MaidBot?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
-client.commands = new Discord.Collection();
+client.commands = new Discord.Collection()
 
+const Commands = {}
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-	const cmd = require(`./commands/${file}`);
-  const command = new cmd()
-	client.commands.set(command.name, command);
+  try {
+    const cmd = require(`./commands/${file}`);
+    const command = new cmd()
+    client.commands.set(command.constructor.name, command);
+    Commands[command.constructor.name] = {Status: "✅"}
+  } catch(e) {
+    console.log(e)
+  }
 }
 
+const Events = {}
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
-	const event = require(`./events/${file}`);
-  const eventName = file.split('.js')[0]
-  client.on(eventName, (...args) => event(client, ...args))
+  try {
+    const event = require(`./events/${file}`);
+    const eventName = file.split('.js')[0]
+    client.on(eventName, (...args) => event(client, ...args))
+    Events[eventName] = {Status: "✅"}
+  } catch(e) {
+    console.log(e)
+  }
 }
+
+console.table(Commands);
+console.table(Events);
 
 client.login(process.env.token);
 

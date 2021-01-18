@@ -1,6 +1,5 @@
 module.exports = class command {
-  constructor(name, description, usage) {
-    this.name = name;
+  constructor(description, usage) {
     this.description = description;
     this.usage = usage;
   }

@@ -74,7 +74,7 @@ module.exports = {
                 .send({
                   embed: {
                     color: "ORANGE",
-                    description: `https://maid-kitsune-senko-san.herokuapp.com/typeracer/${msg.author.id}/${p2.id}`
+                    description: `https://zenith-positive-marquis.glitch.me/typeracer/${msg.author.id}/${p2.id}`
                   }
                 })
                 .then(() => {
