@@ -9,14 +9,14 @@ class TenorSearch {
     if (!user)
       return msg.channel.send({
         embed: {
-          description: "You cant hug nobody... :(",
+          description: "You cant pat nobody... :(",
           color: "RED"
         }
       });
     if (user.id == msg.author.id)
       return msg.channel.send({
         embed: {
-          description: "You cant hug yourself... :(",
+          description: "You cant pat yourself... :(",
           color: "RED"
         }
       });
