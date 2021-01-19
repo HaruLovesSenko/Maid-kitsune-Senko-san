@@ -17,7 +17,7 @@ module.exports = class help extends command {
       });
     let args = msg.content.split(" ")
     if (!args[1]) {
-      let text = 'Do "s?help [category]" to see the commands in that category!```NORMAL``````FUN``````ROLEPLAY```'
+      let text = 'Do "s?help [category]" to see the commands in that category!```NORMAL``````FUN```'
       let embed = new MessageEmbed()
       .setTitle("COMMANDS")
       .setDescription(text)

@@ -3,6 +3,26 @@ const using = new Set();
 
 module.exports = (client, msg) => {
   if (!msg.guild || msg.author.bot) return;
+  if (msg.content.toLowerCase().startsWith("s?tweet ")) {
+    let args = msg.content
+      .split(" ")
+      .slice(1)
+      .join(" ");
+    var Twitter = require("twitter");
+    var T = new Twitter({
+      consumer_key: process.env.tApiKey,
+      consumer_secret: process.env.tApiKeySecret,
+      access_token_key: process.env.tAccessToken,
+      access_token_secret: process.env.tAccessTokenSecret
+    });
+    let id;
+    T.post("statuses/update", { status: `${msg.author.username} - ${args}` }, function(err, data, response) {
+      if (err) return console.log(err);
+      msg.channel.send(
+        "https://twitter.com/DotcomJohann/status/" + data.id_str
+      );
+    });
+  }
   if (msg.content.toLowerCase().startsWith(prefix)) {
     try {
       let name = msg.content.slice(prefix.length).split(" ")[0];
@@ -10,19 +30,23 @@ module.exports = (client, msg) => {
         x => x.constructor.name.toLowerCase() == name.toLowerCase()
       );
       if (using.has(msg.author.id))
-      return msg.channel.send({
-        embed: {
-          description:
-            "Please finish your last command before using a new one.",
-          color: "RED"
-        }
-      });
+        return msg.channel.send({
+          embed: {
+            description:
+              "Please finish your last command before using a new one.",
+            color: "RED"
+          }
+        });
       return command.run(msg, client, using);
     } catch (err) {
       console.log(err);
     }
   }
-  if (msg.member && msg.member.hasPermission("ADMINISTRATOR") && msg.guild.id == "791993321374613514") {
+  if (
+    msg.member &&
+    msg.member.hasPermission("ADMINISTRATOR") &&
+    msg.guild.id == "791993321374613514"
+  ) {
     if (msg.content.startsWith("s@rule")) {
       msg.delete();
       let rules = require("/app/exports/serverRules.js");

@@ -5,6 +5,7 @@ dependencies:
   memejs: 1.2.3
   node-fetch: 2.6.1
   random-word: 2.0.0
+  twitter: 1.7.1
 packages:
   /@discordjs/collection/0.1.6:
     dev: false
@@ -201,6 +202,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  /deep-extend/0.5.1:
+    dev: false
+    engines:
+      iojs: '>=1.0.0'
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-N8vBdOa+DF7zkRrDCsaOXoCs/E2fJfx9B9MrKnnSiHNh4ws7eSys6YQE4KvT1cecKmOASYQBhbKjeuDD9lT81w==
   /delayed-stream/1.0.0:
     dev: false
     engines:
@@ -965,6 +973,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
+  /twitter/1.7.1:
+    dependencies:
+      deep-extend: 0.5.1
+      request: 2.88.2
+    dev: false
+    resolution:
+      integrity: sha1-B2I3jx3BwFDkj2ZqypBOJLGpYvQ=
   /type-is/1.6.18:
     dependencies:
       media-typer: 0.3.0
@@ -1056,3 +1071,4 @@ specifiers:
   memejs: ^1.2.3
   node-fetch: ^2.6.1
   random-word: ^2.0.0
+  twitter: ^1.7.1
