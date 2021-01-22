@@ -3,26 +3,6 @@ const using = new Set();
 
 module.exports = (client, msg) => {
   if (!msg.guild || msg.author.bot) return;
-  if (msg.content.toLowerCase().startsWith("s?tweet ")) {
-    let args = msg.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    var Twitter = require("twitter");
-    var T = new Twitter({
-      consumer_key: process.env.tApiKey,
-      consumer_secret: process.env.tApiKeySecret,
-      access_token_key: process.env.tAccessToken,
-      access_token_secret: process.env.tAccessTokenSecret
-    });
-    let id;
-    T.post("statuses/update", { status: `${msg.author.username} - ${args}` }, function(err, data, response) {
-      if (err) return console.log(err);
-      msg.channel.send(
-        "https://twitter.com/DotcomJohann/status/" + data.id_str
-      );
-    });
-  }
   if (msg.content.toLowerCase().startsWith(prefix)) {
     try {
       let name = msg.content.slice(prefix.length).split(" ")[0];
