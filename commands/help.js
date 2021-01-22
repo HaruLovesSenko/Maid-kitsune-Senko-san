@@ -7,14 +7,6 @@ module.exports = class help extends command {
   }
   
   run(msg, client, using) {
-    if (using.has(msg.author.id))
-      return msg.channel.send({
-        embed: {
-          description:
-            "Please finish your last command before using a new one.",
-          color: "RED"
-        }
-      });
     let args = msg.content.split(" ")
     if (!args[1]) {
       let text = 'Do "s?help [category]" to see the commands in that category!```NORMAL``````FUN```'
