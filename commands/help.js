@@ -9,7 +9,7 @@ module.exports = class help extends command {
   run(msg, client, using) {
     let args = msg.content.split(" ")
     if (!args[1]) {
-      let text = 'Do "s?help [category]" to see the commands in that category!```NORMAL``````FUN```'
+      let text = 'Do "s?help [category]" to see the commands in that category!\n```\nNORMAL\n```\n```\nFUN\n```'
       let embed = new MessageEmbed()
       .setTitle("COMMANDS")
       .setDescription(text)
