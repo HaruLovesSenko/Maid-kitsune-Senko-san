@@ -33,12 +33,6 @@ module.exports = class help extends command {
               text += `\`${command.constructor.name}\` `
             }
           })
-        } else if (args[1].toLowerCase() == "roleplay") {
-          client.commands.forEach(command => {
-            if (command.category == "roleplay") {
-              text += `\`${command.constructor.name}\` `
-            }
-          })
         } else {
           return msg.channel.send({
           embed: {

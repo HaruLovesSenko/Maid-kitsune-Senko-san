@@ -1,5 +1,6 @@
 const prefix = "s?";
 const using = new Set();
+const db = require('ezpz.db')
 
 module.exports = (client, msg) => {
   if (!msg.guild || msg.author.bot) return;
