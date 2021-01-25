@@ -54,7 +54,7 @@ app.get("/", (req, res) => {
 app.get("/typeracer/:p1/:p2", (req, res) => {
   let players = req.params;
   db.get(`${players.p1}_${players.p2}`).then(game => {
-    res.send(require("/app/exports/typeracer/html.js")(game.num, game.words));
+    res.send(require("./exports/typeracer/html.js")(game.num, game.words));
   });
 });
 

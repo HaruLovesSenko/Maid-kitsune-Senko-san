@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const command = require("/app/exports/commandClass.js");
+const command = require("../exports/commandClass.js");
 
 module.exports = class ping extends command {
   constructor() {
