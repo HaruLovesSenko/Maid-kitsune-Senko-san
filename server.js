@@ -4,8 +4,9 @@ const fs = require('fs')
 
 const client = new Discord.Client();
 const prefix = "s?";
+const config = require('./config.json');
 
-db.connect(`mongodb+srv://Haru:${process.env.mongoP}@cluster0-whi8f.mongodb.net/MaidBot?retryWrites=true&w=majority`, {
+db.connect(`mongodb+srv://Haru:${config.mongoP}@cluster0-whi8f.mongodb.net/MaidBot?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -41,7 +42,7 @@ for (const file of eventFiles) {
 console.table(Commands);
 console.table(Events);
 
-client.login(process.env.token);
+client.login(config.token);
 
 ///////////////////////////////////
 const express = require("express");
