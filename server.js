@@ -42,7 +42,7 @@ for (const file of eventFiles) {
 console.table(Commands);
 console.table(Events);
 
-client.login(config.token);
+client.login(process.env.token);
 
 ///////////////////////////////////
 const express = require("express");
